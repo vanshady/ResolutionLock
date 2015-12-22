@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "name": "ResolutionLock",
+    "description": "This extension can lock the highest resolution of Netflix videos ",
+    "version": "0.0.1",
+
+    "background": {
+        "scripts": ["jquery-2.1.4.min.js", "background.js"]
+    },
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "https://ajax.googleapis.com/",
+        "http://localhost/"
+    ],
+
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_title": "ResolutionLock",
+        "default_popup": "popup.html"
+    },
+
+    "content_scripts": [{
+        "matches": ["http://www.netflix.com/watch/*"],
+        "js": ["jquery-2.1.4.min.js", "content_script.js"]
+    }]
+}
